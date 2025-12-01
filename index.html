@@ -7,6 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
+
+
+
+
         * {
             margin: 0;
             padding: 0;
@@ -65,26 +69,6 @@
 
         .nav a:hover {
             opacity: 0.8;
-        }
-
-        .btn {
-            transform: skewX(-13deg);
-            background: #fbf5ff;
-            padding: 12px 24px;
-            text-decoration: none;
-            color: #000;
-            font-weight: 700;
-            border-radius: 4px;
-            transition: all 0.3s;
-        }
-
-        .btn:hover {
-            background: #fff;
-        }
-
-        .btn span {
-            display: inline-block;
-            transform: skewX(13deg);
         }
 
         /* Hero Section */
@@ -456,24 +440,577 @@
                 grid-template-columns: 1fr;
             }
         }
+
+
+
+
+
+
+        /* BASE STYLES - KEEP */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arimo', sans-serif;
+            background: #fff;
+            color: #0b0023;
+            overflow-x: hidden;
+        }
+
+        /* General Links/Text */
+        a {
+            text-decoration: none;
+        }
+        
+        strong {
+             text-decoration: none; /* remove global strong style */
+        }
+
+        /* ================================================= */
+        /* ✨ BUTTON STYLES (your animated button) - Keep */
+        /* ================================================= */
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 13rem;
+            overflow: hidden;
+            height: 3rem;
+            background-size: 300% 300%;
+            cursor: pointer;
+            backdrop-filter: blur(1rem);
+            border-radius: 5rem;
+            transition: 0.5s;
+            animation: gradient_301 5s ease infinite;
+            border: double 4px transparent;
+            background-image: linear-gradient(#212121, #212121),
+                linear-gradient(
+                    137.48deg,
+                    #ffdb3b 10%,
+                    #fe53bb 45%,
+                    #8f51ea 67%,
+                    #0044ff 87%
+                );
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            position: relative;
+            text-decoration: none !important;
+        }
+        
+        /* Adjustments for fixed bottom button */
+        .btn.fixed-bottom {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15rem; /* Slightly wider for the main call to action */
+            height: 3.5rem;
+            z-index: 999; /* Below the menu (10000) but above everything else */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn.small {
+            width: 100%; /* Full width for mobile menu */
+            height: 48px;
+            border-radius: 10px;
+            font-size: 15px;
+        }
+        
+        .btn.small strong,
+        .btn.fixed-bottom strong {
+            font-size: 15px;
+            letter-spacing: 2px;
+        }
+
+        #container-stars {
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            transition: 0.5s;
+            backdrop-filter: blur(1rem);
+            border-radius: 5rem;
+        }
+
+        .btn strong {
+            z-index: 2;
+            font-family: 'Arimo', sans-serif;
+            font-size: 12px;
+            letter-spacing: 5px;
+            color: #ffffff;
+            text-shadow: 0 0 4px white;
+            font-weight: 700;
+        }
+
+        #glow {
+            position: absolute;
+            display: flex;
+            width: 12rem;
+        }
+
+        .circle {
+            width: 100%;
+            height: 30px;
+            filter: blur(2rem);
+            animation: pulse_3011 4s infinite;
+            z-index: -1;
+        }
+
+        .circle:nth-of-type(1) { background: rgba(254, 83, 186, 0.636); }
+        .circle:nth-of-type(2) { background: rgba(142, 81, 234, 0.704); }
+
+        .btn:hover #container-stars {
+            z-index: 1;
+            background-color: #212121;
+        }
+
+        .btn:hover { transform: scale(1.05); }
+        .btn.small:hover { transform: scale(1.02); } 
+        .btn.fixed-bottom:hover { transform: translateX(-50%) scale(1.03); }
+
+
+        .btn:active {
+            border: double 4px #fe53bb;
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            animation: none;
+        }
+
+        #stars {
+            position: relative;
+            background: transparent;
+            width: 200rem;
+            height: 200rem;
+        }
+
+        #stars::after {
+            content: "";
+            position: absolute;
+            top: -10rem;
+            left: -100rem;
+            width: 100%;
+            height: 100%;
+            animation: animStarRotate 90s linear infinite;
+            background-image: radial-gradient(#ffffff 1px, transparent 1%);
+            background-size: 50px 50px;
+        }
+
+        #stars::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 170%;
+            height: 500%;
+            animation: animStar 60s linear infinite;
+            background-image: radial-gradient(#ffffff 1px, transparent 1%);
+            background-size: 50px 50px;
+            opacity: 0.5;
+        }
+
+        /* Keyframes - Keep */
+        @keyframes animStar {
+            from { transform: translateY(0); }
+            to { transform: translateY(-135rem); }
+        }
+
+        @keyframes animStarRotate {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0); }
+        }
+
+        @keyframes gradient_301 {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pulse_3011 {
+            0% { transform: scale(0.75); box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 0, 0, 0); }
+            100% { transform: scale(0.75); box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+        }
+
+        /* ================================================= */
+        /* HEADER & NAVIGATION STYLES */
+        /* ================================================= */
+        .header {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            right: 24px;
+            z-index: 9999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-wrapper {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(32px);
+            padding: 12px 24px;
+            border-radius: 12px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            font-style: italic;
+        }
+
+        .nav {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: opacity 0.3s;
+        }
+
+        /* SCROLL HEADER */
+        .header.scrolled .header-wrapper {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+        .header.scrolled .logo { color: #0b0023; }
+        .header.scrolled .nav a { color: #0b0023; }
+
+        /* ================================================= */
+        /* 🎨 MOBILE NAV STYLES */
+        /* ================================================= */
+        .mobile-menu-btn {
+            width: 30px;
+            height: 22px;
+            display: none; 
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 9999; 
+            position: relative;
+            margin-right: 12px; 
+        }
+        
+        .mobile-menu-btn span {
+            width: 100%;
+            height: 3px;
+            background: #fff; 
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .mobile-menu-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 85%;
+            max-width: 400px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.9); 
+            backdrop-filter: blur(40px);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            transform: translateX(100%); 
+            transition: transform 0.45s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+            z-index: 10000;
+        }
+
+        .mobile-menu-panel.open {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mobile-menu-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0b0023; 
+            text-decoration: none;
+            font-style: italic;
+        }
+
+        .mobile-menu-close {
+            font-size: 32px;
+            color: #0b0023; 
+            cursor: pointer;
+        }
+
+        .mobile-menu-links {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            list-style: none;
+        }
+
+        .mobile-menu-links a {
+            color: #0b0023; 
+            font-size: 18px;
+            font-weight: 400;
+            text-decoration: none;
+        }
+        
+        .mobile-menu-links a:hover {
+            color: #b744ff; 
+        }
+
+        .mobile-menu-buttons {
+            margin-top: auto;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        
+        /* ================================================= */
+        /* MOBILE MEDIA QUERY */
+        /* ================================================= */
+        @media (max-width: 768px) {
+            
+            .header-wrapper {
+                display: initial; 
+            }
+
+            .header {
+                justify-content: space-between;
+                padding: 12px;
+                background: rgba(11, 0, 35, 0.9); 
+                top: 0; left: 0; right: 0;
+                border-radius: 0;
+            }
+
+            .header .logo {
+                color: #fff;
+                margin-left: 12px;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .nav {
+                display: none;
+            }
+            
+            /* Hide the desktop header BOOK NOW button on mobile */
+            .header-wrapper .btn {
+                display: none;
+            }
+            
+            /* Adjust fixed button size on smaller screens */
+            .btn.fixed-bottom {
+                width: 90%;
+                max-width: 300px;
+                bottom: 15px;
+            }
+        }
+        
+        /* Hero section and other content styles (omitted for brevity) */
+        .hero {
+            height: 100vh;
+            background: #0b0023;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            /* Added padding-bottom to ensure hero content isn't covered by fixed button */
+            padding-bottom: 80px; 
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.65;
+            mask-image: linear-gradient(to bottom, #000, rgba(0,0,0,0));
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            color: #fff;
+            text-align: center;
+            z-index: 10;
+            transform: rotate(-2deg);
+            font-style: italic;
+            text-transform: capitalize;
+            line-height: 1.2;
+        }
+        
+        .hero h1 strong {
+            display: block;
+            font-size: 110px;
+            line-height: 0.9;
+        }
+        
+        /* Example Content Section to make the page scrollable */
+        .content-section {
+            height: 100vh; /* Make the section tall enough to require scrolling */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            background: #f4f4f4;
+            color: #0b0023;
+        }
+        
     </style>
 </head>
 <body>
 
-   
-    <!-- Header -->
-    <section id="top" class="top">
-    <header class="header">
-        <div class="header-wrapper">
-            <a href="#top" class="logo">Luxe Dreamz</a>
-            <ul class="nav">
-                <li><a href="#activities">Activities</a></li>
-                <li><a href="#specials">Specials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-        <a href="#book" class="btn"><span>Book Now</span></a>
-    </header>
+<section id="top" class="top">
+<header class="header">
+    <div class="mobile-menu-btn" id="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="header-wrapper">
+        <a href="#top" class="logo">Luxe Dreamz</a>
+
+        <ul class="nav">
+            <li><a href="#activities">Activities</a></li>
+            <li><a href="#specials">Specials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <a href="#book" class="btn">
+            <strong>BOOK NOW</strong>
+            <div id="container-stars">
+                <div id="stars"></div>
+            </div>
+            <div id="glow">
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+        </a>
+    </div>
+</header>
+<div class="mobile-menu-panel" id="mobile-menu-panel">
+    <div class="mobile-menu-header">
+        <div class="mobile-menu-logo">Luxe Dreamz</div>
+        <div class="mobile-menu-close" id="mobile-menu-close">&times;</div>
+    </div>
+
+    <nav class="mobile-menu-links">
+        <a href="#activities">Activities</a>
+        <a href="#specials">Specials</a>
+        <a href="#contact">Contact</a>
+        <a href="#home">Home</a> 
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#birthday">Birthday Parties</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <div class="mobile-menu-buttons">
+        
+        <a href="#quote" class="btn small">
+            <strong>GET QUOTE</strong>
+            <div id="container-stars">
+                <div id="stars"></div>
+            </div>
+            <div id="glow">
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+        </a>
+        
+        <a href="#book" class="btn small">
+            <strong>BOOK NOW</strong>
+            <div id="container-stars">
+                <div id="stars"></div>
+            </div>
+            <div id="glow">
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+        </a>
+        
+    </div>
+</div>
+<script>
+    // --- 1. Scroll Header Logic ---
+    const header = document.querySelector(".header");
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 10) { 
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    });
+
+    // --- 2. Mobile Menu Logic ---
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const menuPanel = document.getElementById("mobile-menu-panel");
+    const closeBtn = document.getElementById("mobile-menu-close");
+    const navLinks = document.querySelectorAll(".mobile-menu-links a");
+    const mobileButtons = document.querySelectorAll(".mobile-menu-buttons .btn");
+
+
+    // Toggle menu open
+    menuBtn.addEventListener("click", (e) => {
+        e.stopPropagation(); 
+        menuPanel.classList.toggle("open");
+    });
+
+    // Close button
+    closeBtn.addEventListener("click", () => {
+        menuPanel.classList.remove("open");
+    });
+
+    // Close when a nav link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            menuPanel.classList.remove("open");
+        });
+    });
+    
+    // Close when a button is clicked
+    mobileButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            menuPanel.classList.remove("open");
+        });
+    });
+
+    // Close when clicking outside the panel 
+    document.addEventListener("click", (e) => {
+        if (!menuPanel.contains(e.target) && !menuBtn.contains(e.target)) {
+            menuPanel.classList.remove("open");
+        }
+    });
+
+    // Prevent closing when clicking INSIDE the panel itself
+    menuPanel.addEventListener("click", (e) => {
+        e.stopPropagation();
+    });
+
+</script>
+
+
+
 
 <!-- Hero Section -->
 <section class="hero" style="padding: 40px 20px; text-align: center;">
@@ -508,50 +1045,8 @@
             <a href="#" class="btn"><span>See availability</span></a>
         </div>
     </section>
+    </style>
 
-
-    <!-- Specials Section -->
-    <section id="specials" class="specials">
-        <h2>Specials at <strong>Mobile</strong></h2>
-        <div class="promotions-wrapper">
-            <div class="swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="promo-item">
-                            <img src="https://images.unsplash.com/photo-1587899897387-091ebd01a6b2?w=400" alt="Thanksgiving Week">
-                            <h3>Thanksgiving Week Specials</h3>
-                            <p>Celebrate Thanksgiving Week with unbeatable fun and savings! November 24-30.</p>
-                            <div style="padding: 0 20px 20px;">
-                                <a href="#" class="btn"><span>More Info</span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="promo-item">
-                            <img src="https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?w=400" alt="Karting">
-                            <h3>Bonus Race for $10</h3>
-                            <p>Add a track race to your game card for just $10, nearly $20 off!</p>
-                            <div style="padding: 0 20px 20px;">
-                                <a href="#" class="btn"><span>More Info</span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="promo-item">
-                            <img src="https://images.unsplash.com/photo-1512909006721-3d6018887383?w=400" alt="Birthday">
-                            <h3>Birthday Party Discount</h3>
-                            <p>Book your weekday party and enjoy 30% OFF with code SURGE30!</p>
-                            <div style="padding: 0 20px 20px;">
-                                <a href="#" class="btn"><span>Book Now</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </div>
-    </section>
 
     <!-- Birthday CTA -->
 <section class="cta-section" style="position: relative; text-align: center; padding: 50px 20px; color: #fff;">
@@ -702,6 +1197,16 @@
                 }
             });
         });
+
+
+
+
+
+
+
+
+
+
     </script>
 </body>
 </html>
